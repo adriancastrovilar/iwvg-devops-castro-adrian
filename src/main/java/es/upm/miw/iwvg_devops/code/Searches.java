@@ -34,4 +34,5 @@ public class Searches {
                 .flatMap(user -> user.getFractions().stream())
                 .map(Fraction::decimal);
     }
+
 }
