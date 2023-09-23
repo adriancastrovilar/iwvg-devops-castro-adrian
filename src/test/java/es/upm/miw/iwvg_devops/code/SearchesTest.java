@@ -22,4 +22,17 @@ public class SearchesTest {
     void testFindDecimalImproperFractionByUserName() {
         assertEquals(List.of(2d, 1.3333333333333333d), new Searches().findDecimalImproperFractionByUserName("Ana").collect(Collectors.toList()));
     }
+
+    @Test
+    void testSuccessFindFirstProperFractionByUserId() {
+        Fraction fraction = new Searches().findFirstProperFractionByUserId("1");
+        assertEquals(0, fraction.getNumerator());
+        assertEquals(1, fraction.getDenominator());
+
+    }
+
+    @Test
+    void testFailFindFirstProperFractionByUserId() {
+        assertThrows(IllegalArgumentException.class, () -> new Searches().findFirstProperFractionByUserId("-1"));
+    }
 }
