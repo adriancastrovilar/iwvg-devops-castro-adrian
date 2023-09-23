@@ -35,4 +35,9 @@ public class SearchesTest {
     void testFailFindFirstProperFractionByUserId() {
         assertThrows(IllegalArgumentException.class, () -> new Searches().findFirstProperFractionByUserId("-1"));
     }
+
+    @Test
+    void testFindDecimalFractionByUserName() {
+        assertEquals(List.of(0d, 1d, 2d, 0.2d,-0.5d, 0.5d, 1d), new Searches().findDecimalFractionByUserName("Oscar").collect(Collectors.toList()));
+    }
 }
